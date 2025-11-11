@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.player-card {
+    transition: all 0.3s ease;
+}
+
+.player-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.player-card.selected {
+    border-left: 4px solid #3b82f6;
+    background-color: #f8fafc;
+}
+
+#playerList li {
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+#playerList li:hover {
+    background-color: #f1f5f9;
+}
+
+#playerList li.selected {
+    background-color: #e0f2fe;
+    font-weight: 600;
+}
+
+.selected-player {
+    background-color: #eff6ff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    position: relative;
+}
+
+.remove-player {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background-color: #ef4444;
+    color: white;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .chart-container {
+        height: 350px;
+    }
+}

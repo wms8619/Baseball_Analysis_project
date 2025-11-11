@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baseball Legends Visualizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <custom-header></custom-header>
+    
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Player Selection -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-bold mb-4">Select Players</h2>
+                <div class="mb-4">
+                    <input type="text" id="searchInput" placeholder="Search players..." class="w-full p-2 border rounded">
+                </div>
+                <div class="h-96 overflow-y-auto">
+                    <ul id="playerList" class="space-y-2">
+                        <!-- Players will be populated here -->
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Stats Visualization -->
+            <div class="lg:col-span-2 bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-bold mb-4">Player Comparison</h2>
+                <div class="flex space-x-4 mb-6">
+                    <select id="statSelect" class="p-2 border rounded flex-1">
+                        <option value="AVG">Batting Average</option>
+                        <option value="HR">Home Runs</option>
+                        <option value="RBI">Runs Batted In</option>
+                        <option value="R">Runs</option>
+                        <option value="H">Hits</option>
+                        <option value="2B">Doubles</option>
+                        <option value="3B">Triples</option>
+                        <option value="SB">Stolen Bases</option>
+                        <option value="OBP">On-Base Percentage</option>
+                        <option value="SLG">Slugging Percentage</option>
+                        <option value="OPS">On-Base Plus Slugging</option>
+                    </select>
+                    <button id="compareBtn" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Compare</button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <canvas id="radarChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <canvas id="careerTimeline"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Selected Players -->
+        <div id="selectedPlayers" class="mt-8 bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-bold mb-4">Selected Players</h2>
+            <div id="selectedPlayersList" class="flex flex-wrap gap-4">
+                <!-- Selected players will appear here -->
+            </div>
+        </div>
+    </main>
+    
+    <custom-footer></custom-footer>
+    
+    <script src="components/header.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
+</body>
+</html>
